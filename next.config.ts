@@ -1,7 +1,7 @@
 import type { NextConfig } from 'next';
 
 const internalApiUrl = new URL(
-  process.env.INTERNAL_API_URL ?? 'http://127.0.0.1:8000/api/v1'
+  process.env.INTERNAL_API_URL ?? 'https://gateway.spay5s.com/api/v1/bank'
 );
 const backendBasePath = internalApiUrl.pathname.replace(/\/api\/v1\/?$/, '');
 const backendBaseUrl = `${internalApiUrl.origin}${backendBasePath}`;

@@ -13,7 +13,7 @@ import { App, Button, Card, Table, Tag } from 'antd';
 import styles from './invoice-docs.module.css';
 
 const base = (
-  process.env.NEXT_PUBLIC_API_PUBLIC_URL || 'http://localhost/api'
+  process.env.NEXT_PUBLIC_API_PUBLIC_URL || 'https://gateway.spay5s.com/api'
 ).replace(/\/$/, '');
 const endpoints = [
   {
@@ -77,7 +77,7 @@ const createResponse = {
     },
     status: 'pending',
     checkoutUrl:
-      'http://localhost:3000/deposit/INV7A0B1C2D3E4F5A?cancelToken=...',
+      'https://spay5s.com/deposit/INV7A0B1C2D3E4F5A?cancelToken=...',
     cancelToken: '...',
     expiresAt: '2026-08-06 10:30:00',
   },

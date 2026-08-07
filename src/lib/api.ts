@@ -1,5 +1,5 @@
-﻿export const API_URL =
-  process.env.NEXT_PUBLIC_API_URL || 'http://localhost/api/next.php';
+export const API_URL =
+  process.env.NEXT_PUBLIC_API_URL || 'https://gateway.spay5s.com/api/v1/bank';
 
 export type ApiOptions = RequestInit & { authenticated?: boolean };
 

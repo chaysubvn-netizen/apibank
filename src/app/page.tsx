@@ -12,9 +12,9 @@ type Package = {
   images: string[];
 };
 const publicApiUrl =
-    process.env.NEXT_PUBLIC_API_URL || 'http://localhost/api/next.php',
+    process.env.NEXT_PUBLIC_API_URL || 'https://gateway.spay5s.com/api/v1/bank',
   apiUrl = process.env.INTERNAL_API_URL || publicApiUrl,
-  apiOrigin = new URL(publicApiUrl, 'http://localhost').origin;
+  apiOrigin = new URL(publicApiUrl, 'https://spay5s.com').origin;
 const money = (value: number) =>
   new Intl.NumberFormat('vi-VN').format(value) + 'đ';
 const imageUrl = (src: string) =>

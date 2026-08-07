@@ -43,7 +43,7 @@ const laravelOrigin = (
 ).replace(/\/$/, '');
 const laravelApiUrl = `${laravelOrigin}/api/v1`;
 const gatewayUrl =
-  process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost/api/next.php';
+  process.env.NEXT_PUBLIC_API_URL ?? 'https://gateway.spay5s.com/api/v1/bank';
 
 const banks = [
   ['mbbank', 'MBBank'],
@@ -353,7 +353,7 @@ const generalEndpoints: Endpoint[] = [
         request_id: 'DH1001',
         amount: '10.1234',
         status: 'waiting',
-        url_payment: 'http://localhost:3000/payment/TX8952C4C5EF7CCDF2',
+        url_payment: 'https://spay5s.com/payment/TX8952C4C5EF7CCDF2',
         expires_at: '2026-08-06T01:59:23+07:00',
       },
     },
