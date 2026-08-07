@@ -375,7 +375,8 @@ export const banks: Bank[] = [
     ],
   },
 ];
-const money = (value: unknown) => formatMoney(Number(value) || 0);
+const balanceOf = (row: Account) => [row.balance, row.sodu, row.SoDu, row.availableBalance, row.balanceAval].find((value) => value !== null && value !== undefined && value !== "");
+const money = (value: unknown) => value === null || value === undefined || value === "" ? "Chưa cập nhật" : formatMoney(Number(value) || 0);
 const addedAt = (row: Account) => {
   const value = row.create_date || row.created_at || row.time;
   if (!value) return '—';
@@ -675,7 +676,7 @@ export function BankGatewayContent({ bankCode }: { bankCode?: string }) {
     },
     {
       title: 'SỐ DƯ',
-      render: (_, r) => <Tag color="success">{money(r.balance ?? r.sodu)}</Tag>,
+      render: (_, r) => { const balance = balanceOf(r); return <Tag color={balance === undefined ? "default" : "success"}>{money(balance)}</Tag> },
     },
     { title: 'THỜI GIAN THÊM', render: (_, r) => <b>{addedAt(r)}</b> },
     {
