@@ -1,0 +1,121 @@
+.page {
+  padding-bottom: 40px;
+}
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 28px 32px;
+  margin-bottom: 20px;
+  border-radius: 22px;
+  background: linear-gradient(120deg, #102d29, #086d63);
+  color: #fff;
+  box-shadow: 0 16px 38px rgba(8, 67, 59, 0.18);
+}
+.hero span {
+  color: #75ead5;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+.hero h1 {
+  margin: 6px 0;
+  color: #fff;
+  font-size: 30px;
+}
+.hero p {
+  margin: 0;
+  color: #bddbd6;
+}
+.checklist {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.checklist :global(.ant-card-body) {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px;
+}
+.checklist :global(.anticon) {
+  font-size: 20px;
+  color: #0b887b;
+}
+.checklist :global(.anticon-check-circle) {
+  margin-left: auto;
+  color: #1bb374;
+}
+.section {
+  margin-bottom: 20px;
+  border: 1px solid #dfeae7 !important;
+  border-radius: 17px !important;
+  box-shadow: 0 8px 28px rgba(20, 60, 53, 0.05);
+}
+.section code {
+  color: #08786f;
+}
+.section pre {
+  overflow: auto;
+  padding: 18px;
+  border-radius: 12px;
+  background: #122421;
+  color: #d9f6ef;
+  font:
+    12px/1.7 Consolas,
+    monospace;
+  white-space: pre-wrap;
+}
+.section ol {
+  padding-left: 22px;
+  line-height: 2;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.endpoint {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 9px 9px 14px;
+  border: 1px solid #dfe9e6;
+  border-radius: 10px;
+  background: #f6faf9;
+}
+.note {
+  display: flex;
+  gap: 12px;
+  padding: 15px;
+  border: 1px solid #b9dcf7;
+  border-radius: 11px;
+  background: #eef7ff;
+  color: #315d83;
+}
+.note :global(.anticon) {
+  font-size: 20px;
+}
+@media (max-width: 950px) {
+  .checklist {
+    grid-template-columns: 1fr 1fr;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .hero {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 23px;
+  }
+  .hero h1 {
+    font-size: 24px;
+  }
+  .checklist {
+    grid-template-columns: 1fr;
+  }
+}

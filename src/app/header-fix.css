@@ -1,0 +1,134 @@
+.ant-layout-header.app-header {
+  height: 78px !important;
+  min-height: 78px;
+  padding: 0 30px !important;
+  line-height: normal !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  overflow: visible;
+}
+.ant-layout-header.app-header > .ant-space {
+  height: 100%;
+  align-items: center;
+}
+.app-header .user-menu {
+  height: 52px;
+  min-width: 164px;
+  padding: 6px 10px 6px 7px;
+  border: 1px solid #e7edec;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 3px 12px rgba(16, 54, 50, 0.045);
+  display: flex !important;
+  align-items: center !important;
+  line-height: 1 !important;
+  transition: 0.2s ease;
+}
+.app-header .user-menu:hover {
+  border-color: #cbdedb;
+  box-shadow: 0 7px 20px rgba(16, 54, 50, 0.09);
+}
+.app-header .user-avatar {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+}
+.app-header .user-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  line-height: 1.1 !important;
+}
+.app-header .user-copy .ant-typography {
+  display: block;
+  max-width: 118px;
+  margin: 0;
+  overflow: hidden;
+  color: #173330;
+  font-size: 12px;
+  line-height: 14px !important;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.app-header .user-copy small {
+  display: block;
+  color: #91a09d;
+  font-size: 9px;
+  line-height: 11px !important;
+}
+.app-header .breadcrumb-label {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  line-height: 1 !important;
+  white-space: nowrap;
+}
+.app-header .collapse-btn {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+}
+@media (max-width: 900px) {
+  .app-header .user-menu {
+    min-width: 0;
+    width: 48px;
+    padding: 5px;
+  }
+  .app-header .user-copy {
+    display: none;
+  }
+}
+
+/* Keep navigation stable while long dashboard pages scroll. */
+.app-sider {
+  position: sticky !important;
+  top: 0;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  align-self: flex-start;
+}
+.app-sider .ant-layout-sider-children {
+  height: 100vh;
+  min-height: 0;
+  overflow: hidden;
+}
+.app-sider .brand {
+  flex: 0 0 78px;
+}
+.app-sider .ant-menu {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(94, 234, 212, 0.35) transparent;
+}
+.app-sider .ant-menu::-webkit-scrollbar {
+  width: 5px;
+}
+.app-sider .ant-menu::-webkit-scrollbar-thumb {
+  background: rgba(94, 234, 212, 0.32);
+  border-radius: 10px;
+}
+.app-sider .sider-help {
+  flex: 0 0 auto;
+}
+.app-layout > .ant-layout {
+  min-width: 0;
+}
+@media (max-width: 991px) {
+  .app-sider {
+    position: fixed !important;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    height: 100vh;
+  }
+}

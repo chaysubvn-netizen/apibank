@@ -1,0 +1,324 @@
+.bank-manager {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.bank-page-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 34px;
+}
+.bank-page-head h1 {
+  margin: 0 0 5px;
+  font-size: 22px;
+  font-weight: 500;
+  color: #0c1728;
+}
+.bank-page-head p {
+  margin: 0;
+  font-size: 12px;
+  color: #68758a;
+}
+.bank-page-head .ant-btn {
+  height: 36px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.techcombank-session-notice {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 18px;
+}
+.techcombank-session-notice .ant-alert {
+  border: 0;
+  border-radius: 8px;
+  background: #dc2626;
+  color: #fff;
+  padding: 14px 18px;
+}
+.techcombank-session-notice .ant-alert-message,
+.techcombank-session-notice .ant-alert-icon {
+  color: #fff;
+  font-weight: 700;
+}
+.techcombank-session-notice .ant-alert-message {
+  line-height: 1.55;
+}
+.bank-list-card .ant-tooltip {
+  font-weight: 600;
+}
+.bank-list-card {
+  border: 1px solid #edf0f4 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 2px 5px rgba(18, 35, 58, 0.08);
+}
+.bank-list-card .ant-card-head {
+  min-height: 50px;
+  border-bottom: 1px solid #e6eaf0;
+  padding: 0 22px;
+}
+.bank-list-card .ant-card-head-title {
+  font-size: 16px;
+}
+.bank-list-card .ant-card-body {
+  padding: 48px 25px;
+}
+.bank-list-card .ant-table {
+  font-size: 13px;
+}
+.bank-list-card .ant-table-thead > tr > th {
+  height: 50px;
+  background: #fafbfc;
+  color: #101827;
+  font-size: 12px;
+  font-weight: 800;
+  border-top: 1px solid #e5e9ef;
+}
+.bank-list-card .ant-table-tbody > tr > td {
+  height: 72px;
+  color: #101827;
+}
+.bank-list-card .ant-tag {
+  border: 0;
+  font-weight: 700;
+}
+.bank-list-card .ant-btn.ant-btn-circle {
+  width: 40px;
+  height: 40px;
+}
+.bank-list-card .balance-action {
+  color: #fff;
+  background: #16a34a;
+  border-color: #16a34a;
+  box-shadow: 0 4px 10px rgba(22, 163, 74, 0.22);
+}
+.bank-list-card .balance-action:hover {
+  color: #fff !important;
+  background: #15803d !important;
+  border-color: #15803d !important;
+  transform: translateY(-1px);
+}
+.bank-list-card .relogin-action {
+  color: #fff;
+  background: #6366f1;
+  border-color: #6366f1;
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.22);
+}
+.bank-list-card .relogin-action:hover {
+  color: #fff !important;
+  background: #4f46e5 !important;
+  border-color: #4f46e5 !important;
+  transform: translateY(-1px);
+}
+.bank-list-card .view-action {
+  color: #fff;
+  background: #22a982;
+  border-color: #22a982;
+}
+.bank-list-card .view-action:hover {
+  color: #fff !important;
+  background: #198c6c !important;
+  border-color: #198c6c !important;
+}
+.account-detail {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 15px;
+  padding: 8px 0;
+}
+.app-sider .ant-menu-submenu .ant-menu-submenu-title {
+  font-weight: 600;
+}
+.app-sider .ant-menu-sub.ant-menu-inline {
+  background: rgba(0, 0, 0, 0.08) !important;
+}
+.app-sider .ant-menu-sub .ant-menu-item {
+  height: 36px;
+  line-height: 36px;
+  padding-left: 67px !important;
+  font-size: 13px;
+}
+.app-sider .ant-menu-sub .ant-menu-item::before {
+  content: '•';
+  position: absolute;
+  left: 34px;
+  color: rgba(153, 246, 228, 0.48);
+}
+.app-sider .ant-menu-sub .ant-menu-item-selected::before {
+  color: #5eead4;
+}
+@media (max-width: 768px) {
+  .bank-page-head {
+    display: block;
+    margin-bottom: 20px;
+  }
+  .bank-page-head .ant-space {
+    margin-top: 14px;
+  }
+  .bank-list-card .ant-card-body {
+    padding: 20px 12px;
+  }
+  .bank-page-head h1 {
+    font-size: 19px;
+  }
+}
+.bank-list-card .history-action {
+  color: #fff;
+  background: #087e78;
+  border-color: #087e78;
+}
+.bank-list-card .history-action:hover {
+  color: #fff !important;
+  background: #076862 !important;
+  border-color: #076862 !important;
+}
+.bank-form-page,
+.bank-history-page {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.bank-form-card {
+  max-width: 680px;
+  border-radius: 14px !important;
+}
+.history-bank-card {
+  border: 1px solid #e7ebf0 !important;
+  border-radius: 8px !important;
+}
+.history-bank-card .ant-card-body {
+  padding: 0;
+}
+.history-query {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e7ebf0;
+  width: 100%;
+}
+.history-query .ant-picker {
+  width: 180px;
+  height: 38px;
+}
+.history-query .ant-btn {
+  height: 38px;
+  background: #0aad69;
+}
+.history-bank-card .ant-table-thead > tr > th {
+  font-size: 12px;
+  font-weight: 800;
+  height: 46px;
+}
+.history-bank-card .ant-table-tbody > tr > td {
+  height: 58px;
+}
+.zalopay-transaction-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 220px;
+}
+.zalopay-transaction-content img {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  object-fit: contain;
+  border-radius: 9px;
+  background: #f5f7f9;
+  padding: 4px;
+}
+.zalopay-transaction-content span {
+  line-height: 1.4;
+}
+.account-view-page {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.account-view-card {
+  margin-top: 18px;
+  border: 1px solid #e8edf3 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 30px rgba(21, 45, 75, 0.07);
+}
+.account-view-card .ant-card-head {
+  background: #f2f7ff;
+  min-height: 92px;
+}
+.account-view-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.account-view-title > span {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  color: #3578e5;
+  font-size: 24px;
+  box-shadow: 0 3px 12px rgba(30, 70, 120, 0.12);
+}
+.account-view-title h2 {
+  font-size: 20px;
+  margin: 0;
+}
+.account-view-title p {
+  font-size: 12px;
+  font-weight: 400;
+  color: #8290a3;
+  margin: 3px 0 0;
+}
+.account-view-card .ant-card-body {
+  padding: 30px 38px;
+}
+.detail-field {
+  margin-bottom: 22px;
+}
+.detail-field > .ant-typography {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.detail-field .ant-input-affix-wrapper {
+  height: 43px;
+  background: #f8fafc;
+}
+.detail-field input {
+  font-weight: 650;
+  background: transparent;
+}
+.token-field input {
+  color: #d63b48;
+}
+.token-field small {
+  display: block;
+  color: #d99a28;
+  margin-top: 7px;
+}
+.account-view-actions {
+  border-top: 1px solid #edf0f4;
+  padding-top: 20px;
+  width: 100%;
+}
+@media (max-width: 650px) {
+  .account-view-card .ant-card-body {
+    padding: 22px 16px;
+  }
+}
+.app-sider .ant-menu-submenu-selected > .ant-menu-submenu-title,
+.app-sider .ant-menu-submenu-open > .ant-menu-submenu-title {
+  color: #ccfbf1 !important;
+  background: rgba(45, 212, 191, 0.08) !important;
+}
+.app-sider .ant-menu-sub .ant-menu-item {
+  color: rgba(255, 255, 255, 0.68) !important;
+}
+.app-sider .ant-menu-sub .ant-menu-item:hover {
+  color: #ccfbf1 !important;
+  background: rgba(45, 212, 191, 0.1) !important;
+}
+.app-sider .ant-menu-sub .ant-menu-item-selected {
+  color: #fff !important;
+  background: linear-gradient(90deg, #0f766e, #11877d) !important;
+  box-shadow: 0 6px 18px rgba(15, 118, 110, 0.22);
+}
