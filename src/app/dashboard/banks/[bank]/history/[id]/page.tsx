@@ -44,14 +44,14 @@ export default function BankHistory() {
   const [loading, setLoading] = useState(true);
   const load = async () => {
     const result = await api<{ data: Tx[] }>(
-      `/history/v1/${bank.code}?account_id=${encodeURIComponent(params.id)}&limit=100`
+      `/bank-accounts/${bank.code}/${encodeURIComponent(params.id)}/history?per_page=100`
     );
     setData(result.data);
   };
   useEffect(() => {
     let active = true;
     api<{ data: Tx[] }>(
-      `/history/v1/${bank.code}?account_id=${encodeURIComponent(params.id)}&limit=100`
+      `/bank-accounts/${bank.code}/${encodeURIComponent(params.id)}/history?per_page=100`
     )
       .then((result) => {
         if (active) setData(result.data);
