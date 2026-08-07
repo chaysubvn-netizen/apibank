@@ -376,7 +376,11 @@ export const banks: Bank[] = [
   },
 ];
 const balanceOf = (row: Account) => [row.balance, row.sodu, row.SoDu, row.availableBalance, row.balanceAval].find((value) => value !== null && value !== undefined && value !== "");
-const money = (value: unknown) => value === null || value === undefined || value === "" ? "Chưa cập nhật" : formatMoney(Number(value) || 0);
+const money = (value: unknown) => {
+  if (value === null || value === undefined || value === '') return 'Chưa cập nhật';
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? formatMoney(parsed) : 'Chưa cập nhật';
+};
 const addedAt = (row: Account) => {
   const value = row.create_date || row.created_at || row.time;
   if (!value) return '—';
@@ -547,12 +551,18 @@ export function BankGatewayContent({ bankCode }: { bankCode?: string }) {
     setBusyAccountId(row.id);
     const hide = message.loading(`Đang cập nhật số dư ${selected.name}...`, 0);
     try {
-      const result = await api<{ message: string; balance: number }>(
+      const result = await api<{ message: string; balance: number | null }>(
         `/bank-accounts/${row.bank_code}/${row.id}/balance`,
         { method: 'POST' }
       );
       message.success(result.message);
-      await load(false);
+      setAccounts((current) =>
+        current.map((account) =>
+          account.id === row.id
+            ? { ...account, balance: result.balance ?? undefined }
+            : account
+        )
+      );
     } catch (error) {
       message.error(
         error instanceof Error ? error.message : 'Không cập nhật được số dư'
