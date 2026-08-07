@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import {
   DeleteOutlined,
@@ -536,39 +536,6 @@ export function BankGatewayContent({ bankCode }: { bankCode?: string }) {
       cancelButtonProps: { size: 'large' },
       onOk: () => remove(row),
     });
-  const syncAccount = async (row: Account, silent = false) => {
-    if (busyAccountId !== null && !silent) {
-      message.warning(
-        'Một thao tác ngân hàng đang chạy. Vui lòng chờ hoàn tất.'
-      );
-      return false;
-    }
-    setBusyAccountId(row.id);
-    const hide = silent
-      ? null
-      : message.loading(`Đang lấy dữ liệu mới ${selected.name}...`, 0);
-    try {
-      const result = await api<{ message: string }>(
-        `/bank-accounts/${row.bank_code}/${row.id}/sync`,
-        { method: 'POST' }
-      );
-      if (!silent) message.success(result.message);
-      await load(false);
-      return true;
-    } catch (error) {
-      if (!silent)
-        message.error(
-          error instanceof Error
-            ? error.message
-            : 'Không tự đồng bộ được dữ liệu ngân hàng'
-        );
-      return false;
-    } finally {
-      hide?.();
-      setBusyAccountId(null);
-    }
-  };
-
   const refreshBalance = async (row: Account) => {
     if (busyAccountId !== null) {
       message.warning(
@@ -687,12 +654,8 @@ export function BankGatewayContent({ bankCode }: { bankCode?: string }) {
   const openHistory = (row: Account) =>
     router.push(`/dashboard/banks/${selected.code}/history/${row.id}`);
   const sync = async () => {
-    if (rows.length) {
-      for (const row of rows) await syncAccount(row);
-    } else {
-      await load(false);
-      message.info(`Chưa có tài khoản ${selected.name} để cập nhật`);
-    }
+    await load(false);
+    message.success(`Đã làm mới dữ liệu ${selected.name}`);
   };
   const genericColumns: ColumnsType<Account> = [
     {
