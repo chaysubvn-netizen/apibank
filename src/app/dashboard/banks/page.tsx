@@ -474,6 +474,23 @@ export function BankGatewayContent({ bankCode }: { bankCode?: string }) {
         }>(`/bank-accounts?bank=${encodeURIComponent(selected.code)}`);
         setAccounts(result.data);
         setAccountLimit(result.account_limit);
+
+        const balanceResults = await Promise.allSettled(
+          result.data.map((account) =>
+            api<{ message: string; balance: number | null }>(
+              `/bank-accounts/${account.bank_code}/${account.id}/balance`,
+              { method: 'POST' }
+            )
+          )
+        );
+        setAccounts(
+          result.data.map((account, index) => {
+            const balanceResult = balanceResults[index];
+            return balanceResult.status === 'fulfilled'
+              ? { ...account, balance: balanceResult.value.balance ?? undefined }
+              : { ...account, balance: undefined };
+          })
+        );
       } finally {
         if (show) setLoading(false);
       }
@@ -481,31 +498,14 @@ export function BankGatewayContent({ bankCode }: { bankCode?: string }) {
     [selected.code]
   );
   useEffect(() => {
-    let active = true;
-    api<{ data: Account[]; account_limit: AccountLimit }>(
-      `/bank-accounts?bank=${encodeURIComponent(selected.code)}`
-    )
-      .then((result) => {
-        if (active) {
-          setAccounts(result.data);
-          setAccountLimit(result.account_limit);
-        }
-      })
-      .catch((error) => {
-        if (active)
-          message.error(
-            error instanceof Error
-              ? error.message
-              : 'Không tải được giới hạn gói API'
-          );
-      })
-      .finally(() => {
-        if (active) setLoading(false);
-      });
-    return () => {
-      active = false;
-    };
-  }, [message, selected.code]);
+    void load().catch((error) => {
+      message.error(
+        error instanceof Error
+          ? error.message
+          : 'Không tải được danh sách tài khoản ngân hàng'
+      );
+    });
+  }, [load, message]);
   const rows = useMemo(
     () => accounts.filter((row) => row.bank_code === selected.code),
     [accounts, selected.code]
