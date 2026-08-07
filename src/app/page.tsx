@@ -12,8 +12,8 @@ type Package = {
   images: string[];
 };
 const publicApiUrl =
-    process.env.NEXT_PUBLIC_API_URL || 'https://gateway.spay5s.com/api/v1/bank',
-  apiUrl = process.env.INTERNAL_API_URL || publicApiUrl,
+    process.env.NEXT_PUBLIC_PHP_API_URL || 'https://spay5s.com/api/next.php',
+  apiUrl = process.env.INTERNAL_PHP_API_URL || publicApiUrl,
   apiOrigin = new URL(publicApiUrl, 'https://spay5s.com').origin;
 const money = (value: number) =>
   new Intl.NumberFormat('vi-VN').format(value) + 'đ';
