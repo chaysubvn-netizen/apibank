@@ -20,7 +20,7 @@ const siteUrl = (
   process.env.NEXT_PUBLIC_SITE_URL || 'https://spay5s.com'
 ).replace(/\/$/, '');
 const publicApiUrl =
-  process.env.NEXT_PUBLIC_PHP_API_URL || 'https://spay5s.com/api/next.php';
+  process.env.NEXT_PUBLIC_PHP_API_URL || 'https://gateway.spay5s.com/api/v1/bank';
 const apiUrl = process.env.INTERNAL_PHP_API_URL || publicApiUrl;
 const phpOrigin = new URL(publicApiUrl, siteUrl).origin;
 const resolvePhpMediaUrl = (value: unknown): string | null => {
