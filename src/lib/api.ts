@@ -20,7 +20,10 @@ export async function api<T>(
     const token =
       localStorage.getItem('apibank_token') ||
       localStorage.getItem('spay5s_token');
-    if (token) headers.set('Authorization', `Bearer ${token}`);
+    if (token) {
+      headers.set('Authorization', `Bearer ${token}`);
+      headers.set('X-API-Token', token);
+    }
   }
 
   let response: Response;
@@ -30,7 +33,7 @@ export async function api<T>(
     const isQuery = action.includes('?');
     const fullUrl = `${API_URL}?action=${isQuery ? action.replace('?', '&') : action}`;
 
-    response = await fetch(fullUrl, { ...options, headers });
+    response = await fetch(fullUrl, { ...options, headers, cache: 'no-store' });
   } catch {
     throw new Error(`Không thể kết nối API tại backend PHP.`);
   }
