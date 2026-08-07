@@ -140,8 +140,17 @@ export function createRootMetadata(site: SiteConfig): Metadata {
 }
 
 export const privateMetadata: Metadata = {
-  robots: { index: false, follow: false, nocache: true },
-  alternates: null,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
 };
 
 export async function createPrivatePageMetadata(
